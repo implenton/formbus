@@ -1,6 +1,7 @@
 import merge from 'lodash/merge';
 import defaultConfig from './core/default-config';
-import { dispatchCustomEvent, getTrackedElements, isEveryStategyMethodDefined, sendRequest } from './core/utils';
+import directivesHandlerMap from './core/directives-handler-map';
+import { dispatchCustomEvent, getTrackedElements, isEveryStrategyMethodDefined, sendRequest } from './core/utils';
 
 const FormBus = (selectorOrElement, strategy = {}, formBusUserConfig = {}) => {
     let formBusConfig = null;
@@ -35,15 +36,19 @@ const FormBus = (selectorOrElement, strategy = {}, formBusUserConfig = {}) => {
         submitEvent.preventDefault();
 
         const form = submitEvent.target;
-        const body = new FormData(form);
+        const formBody = new FormData(form);
         const { action, method } = form;
 
-        dispatchCustomEvent(trackedWrapper, 'beforeFormBusRequest', body);
+        dispatchCustomEvent(trackedWrapper, 'beforeFormBusRequest', formBody);
 
-        const response = sendRequest(action, body, method, formBusConfig.request.config);
+        const response = sendRequest(action, formBody, method, formBusConfig.request.config);
 
-        response.then((data) => {
-            dispatchCustomEvent(trackedWrapper, 'afterFormBusResponse', data);
+        response.then((responseData) => {
+            for (const directive in directivesHandlerMap) {
+                directivesHandlerMap[directive](responseData, trackedWrapper, strategy, formBusConfig);
+            }
+
+            dispatchCustomEvent(trackedWrapper, 'afterFormBusResponse', responseData);
         });
     };
 
