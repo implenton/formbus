@@ -83,6 +83,10 @@ const isFormSubmissionError = (response = {}) => {
         return false;
     }
 
+    if (isFormValidationError(response)) {
+        return false;
+    }
+
     return true;
 };
 
