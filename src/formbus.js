@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 import defaultConfig from './core/default-config';
-import { dispatchCustomEvent, getTrackedElements, isEveryStategyMethodDefined, postRequest } from './core/utils';
+import { dispatchCustomEvent, getTrackedElements, isEveryStategyMethodDefined, sendRequest } from './core/utils';
 
 const FormBus = (selectorOrElement, strategy = {}, formBusUserConfig = {}) => {
     let formBusConfig = null;
@@ -38,10 +38,12 @@ const FormBus = (selectorOrElement, strategy = {}, formBusUserConfig = {}) => {
         const body = new FormData(form);
         const { action, method } = form;
 
-        const response = postRequest(action, body, method, formBusConfig.request.config);
+        dispatchCustomEvent(trackedWrapper, 'beforeFormBusRequest', body);
+
+        const response = sendRequest(action, body, method, formBusConfig.request.config);
 
         response.then((data) => {
-            dispatchCustomEvent(trackedWrapper, 'formBusResponse', data);
+            dispatchCustomEvent(trackedWrapper, 'afterFormBusResponse', data);
         });
     };
 
