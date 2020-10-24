@@ -64,7 +64,7 @@ export const dispatchCustomEvent = (element, key, detail = null) => {
     element.dispatchEvent(event);
 };
 
-export const isEveryStategyMethodDefined = (strategy = {}) => {
+export const isEveryStrategyMethodDefined = (strategy = {}) => {
     if (isEmpty(strategy)) {
         return false;
     }

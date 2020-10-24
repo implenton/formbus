@@ -8,7 +8,7 @@ const FormBus = (selectorOrElement, strategy = {}, formBusUserConfig = {}) => {
     let trackedForm = null;
 
     const init = () => {
-        if (!isEveryStategyMethodDefined(strategy)) {
+        if (!isEveryStrategyMethodDefined(strategy)) {
             throw new Error('Invalid strategy. Make sure you implement all methods.');
         }
 
