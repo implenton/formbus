@@ -42,7 +42,7 @@ export const getTrackedElements = (selectorOrElement) => {
     return [wrapper, form];
 };
 
-export const postRequest = async (
+export const sendRequest = async (
     url,
     body = null,
     method = 'POST',
