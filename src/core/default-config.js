@@ -15,9 +15,7 @@ const defaultConfig = {
         formSubmissionSuccess: 'is-success is-form-submission-success',
         formValidationError: 'is-error is-form-validation-error'
     },
-    request: {
-        config: {}
-    }
+    request: {}
 };
 
 export default defaultConfig;

@@ -41,7 +41,7 @@ const FormBus = (selectorOrElement, strategy = {}, formBusUserConfig = {}) => {
 
         dispatchCustomEvent(trackedWrapper, 'beforeFormBusRequest', formBody);
 
-        const response = sendRequest(action, formBody, method, formBusConfig.request.config);
+        const response = sendRequest(action, formBody, method, formBusConfig.request);
 
         response.then((responseData) => {
             for (const directive in directivesHandlerMap) {
