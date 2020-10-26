@@ -23,7 +23,7 @@
             "url": "https://www.meszarosrob.com/"
         }
     ],
-    "license": "GPL-3.0",
+    "license": "MIT",
     "devDependencies": {
         "eslint": "^7.11.0",
         "eslint-config-standard": "^14.1.1",
