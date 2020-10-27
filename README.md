@@ -127,6 +127,8 @@ FormBus is extensible; as long as the endpoint returns validation errors for the
 
 ### Events
 
+With the helper functions, you get a lot of flexibility, but it's up to you to act on different states.
+
 Events are attached to the `form` element.
 
 #### `afterFormBusResponse`
@@ -191,8 +193,6 @@ The custom event's detail contains the `FormData` that is sent with the request.
 
 ### Directives
 
-With the helper functions, you get a lot of flexibility, but you still have to act on different states.
-
 Directives are useful when you want to have what is expected.
 
 Just add one of the attributes to an element, and FormBus will do the rest.
@@ -203,11 +203,9 @@ Depending on your case, you can use only one directive or all of them.
 <form action="https://your-website.com/wp-json/contact-form-7/v1/contact-forms/43/feedback"
       method="post"
       id="contact-form"
-+     form-validation-error-class
-+     form-submission-success-class>
++     form-state-class>
 
-+   <div form-validation-error-message></div>
-+   <div form-submission-success-message></div>
++   <div form-state-message></div>
 
 +   <div class="form-group" field-validation-error-class="your-name">
         <label for="name">Your Name</label>
@@ -221,6 +219,8 @@ Depending on your case, you can use only one directive or all of them.
 
 - `field-validation-error-class`
 - `field-validation-error-message`
+- `form-state-class`
+- `form-state-message`
 - `form-submission-error-class`
 - `form-submission-error-message`
 - `form-submission-success-class`
@@ -250,6 +250,8 @@ const defaultConfig = {
     directives: {
         fieldValidationErrorClassNames: 'field-validation-error-class',
         fieldValidationErrorMessage: 'field-validation-error-message',
+        formStateClassNames: 'form-state-class',
+        formStateMessage: 'form-state-message',
         formSubmissionErrorClassNames: 'form-submission-error-class',
         formSubmissionErrorMessage: 'form-submission-error-message',
         formSubmissionSuccessClassNames: 'form-submission-success-class',
