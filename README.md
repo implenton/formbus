@@ -1,10 +1,10 @@
 # FormBus
 
-FormBus might be what you are looking for if you do server-side form validation, and you want a plug and play front-end solution to do the typical.
+FormBus is what you are looking for if you do server-side form validation, and you want a plug and play front-end solution to do the typical.
 
 You can use the built-in directives to show or toggle CSS class names when the fields validation failed, or when the submission was successful, or something went wrong.
 
-In the WordPress context, when you are using a forms plugin, FormBus is for you when:
+**In the WordPress context**, FormBus is suitable when you are using a forms plugin and:
 
 1. The generated HTML structure does not suit your needs, or you are using utility-first CSS frameworks like Tailwind CSS, and you wish to use those class names
 2. You are deep into the rabbit hole of front-end optimization, and you don't want any bloated libraries or dependencies that you are not using anywhere else, like jQuery
@@ -123,7 +123,45 @@ https://your-website.com/wp-json/gf/v2/forms/<ID>/submissions
 
 ##### Your service
 
-FormBus is extensible; as long as the endpoint returns validation errors for the fields and can infer the submission state, you should be able to us with your service. More about this later.
+FormBus is extensible; if your endpoint returns field validation errors, and you can infer the submission state, you should be able to us with your service. More about this later.
+
+### Directives
+
+Directives are useful when you want to have what is expected. Just add one of the attributes to an element, and FormBus will do the rest.
+
+```diff
+<form action="https://your-website.com/wp-json/contact-form-7/v1/contact-forms/43/feedback"
+      method="post"
+      id="contact-form"
++     form-state-class>
+
++   <div form-state-message></div>
+
++   <div class="form-group" field-validation-error-class="your-name">
+        <label for="name">Your Name</label>
+        <input type="text" name="your-name" class="form-control" id="name">
++       <div field-validation-error-message="your-name"></div>
+    </div>
+    <!-- Other input elements -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
+
+Depending on your case, you can use only one directive or all of them:
+
+- `field-validation-error-class`
+- `field-validation-error-message`
+- `form-state-class`
+- `form-state-message`
+
+For separate form states:
+
+- `form-submission-error-class`
+- `form-submission-error-message`
+- `form-submission-success-class`
+- `form-submission-success-class`
+- `form-validation-error-class`
+- `form-validation-error-message`
 
 ### Events
 
@@ -191,43 +229,6 @@ contactForm.addEventListener('beforeFormBusRequest', ({ detail: formData }) => {
 
 The custom event's detail contains the `FormData` that is sent with the request.
 
-### Directives
-
-Directives are useful when you want to have what is expected.
-
-Just add one of the attributes to an element, and FormBus will do the rest.
-
-Depending on your case, you can use only one directive or all of them.
-
-```diff
-<form action="https://your-website.com/wp-json/contact-form-7/v1/contact-forms/43/feedback"
-      method="post"
-      id="contact-form"
-+     form-state-class>
-
-+   <div form-state-message></div>
-
-+   <div class="form-group" field-validation-error-class="your-name">
-        <label for="name">Your Name</label>
-        <input type="text" name="your-name" class="form-control" id="name">
-+       <div field-validation-error-message="your-name"></div>
-    </div>
-    <!-- Other input elements -->
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-```
-
-- `field-validation-error-class`
-- `field-validation-error-message`
-- `form-state-class`
-- `form-state-message`
-- `form-submission-error-class`
-- `form-submission-error-message`
-- `form-submission-success-class`
-- `form-submission-success-class`
-- `form-validation-error-class`
-- `form-validation-error-message`
-
 ## Configuration
 
 You can overwrite the default configuration by passing an object as the second argument.
@@ -283,7 +284,11 @@ const yourConfig = {
 ```diff
 <form action="https://your-website.com/wp-json/contact-form-7/v1/contact-forms/43/feedback"
       method="post"
-      id="contact-form">
+      id="contact-form"
+      form-state-class>
+
+    <div form-state-message></div>
+
 -   <div class="form-group" field-validation-error-class="your-name">
 +   <div class="form-group" data-field-error-class="your-name">
         <label for="name">Your Name</label>
