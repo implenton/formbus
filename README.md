@@ -10,6 +10,14 @@ You can use the built-in directives to show or toggle CSS class names when the f
 2. You are deep into the rabbit hole of front-end optimization, and you don't want any bloated libraries or dependencies that you are not using anywhere else, like jQuery
 3. You are using WordPress as a headless CMS, and you are using the REST API as a primary way to interact with it
 
+---
+
+[![FormBus demo with Contact Form 7](http://i3.ytimg.com/vi/OT-lD60uORM/maxresdefault.jpg)](https://www.youtube.com/watch?v=OT-lD60uORM)
+
+**[Check out the video demonstration](https://www.youtube.com/watch?v=OT-lD60uORM)**
+
+---
+
 ## Usage
 
 ### Installation
