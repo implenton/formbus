@@ -1,7 +1,7 @@
 {
     "name": "formbus",
     "version": "0.4.1",
-    "description": "",
+    "description": "Plug and play front-end solution for your forms API endpoint.",
     "main": "src/index.js",
     "scripts": {
         "lint": "eslint 'src/**/*.{js,ts,tsx}'",
@@ -23,7 +23,7 @@
             "url": "https://www.meszarosrob.com/"
         }
     ],
-    "license": "GPL-3.0",
+    "license": "MIT",
     "devDependencies": {
         "eslint": "^7.11.0",
         "eslint-config-standard": "^14.1.1",
