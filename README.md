@@ -131,7 +131,7 @@ https://your-website.com/wp-json/gf/v2/forms/<ID>/submissions
 
 ##### Your service
 
-FormBus is extensible; if your endpoint returns field validation errors, and you can infer the submission state, you should be able to us with your service. More about this later.
+FormBus is extensible; if your endpoint returns field validation errors, and you can infer the submission state, you should be able to use it with your service. More about this later.
 
 ### Directives
 
