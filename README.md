@@ -388,4 +388,10 @@ const contactFormBus = formBus('#contact-form', serviceResponseHelpers, yourConf
 
 ## Changelog
 
-All notable changes to FormBus are documented in `CHANGELOG.md`.
+All notable changes to FormBus are documented in [CHANGELOG.md](https://github.com/implenton/formbus/blob/main/CHANGELOG.md).
+
+## Contributing
+
+If you are using FormBus and found a bug, then you are likely the most capable of fixing it. You can contribute back the fix by submitting a pull request together with the steps to reproduce it.
+
+Another way to help is by improving the readme.
