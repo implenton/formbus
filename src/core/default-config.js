@@ -9,7 +9,7 @@ const defaultConfig = {
         formSubmissionSuccessClassNames: 'form-submission-success-class',
         formSubmissionSuccessMessage: 'form-submission-success-message',
         formValidationErrorClassNames: 'form-validation-error-class',
-        formValidationErrorMessage: 'form-validation-error-message',
+        formValidationErrorMessage: 'form-validation-error-message'
     },
     classNames: {
         fieldValidationError: 'is-error is-field-validation-error',
