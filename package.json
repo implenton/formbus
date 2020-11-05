@@ -1,6 +1,6 @@
 {
     "name": "formbus",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "description": "Plug and play front-end solution for your forms API endpoint.",
     "main": "src/index.js",
     "scripts": {
